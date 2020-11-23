@@ -4,7 +4,7 @@
   "description": "React typescript webpack boilerplate.",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "webpack serve --mode development --hot",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
   "repository": {
