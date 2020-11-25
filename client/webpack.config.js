@@ -16,13 +16,20 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: '/node_modules/'
-      }
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
   output: {
     filename: 'bundle.min.js',
     path: path.resolve(__dirname, 'build')
   },
+  devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
