@@ -21,8 +21,10 @@ module.exports = {
   },
   output: {
     filename: 'bundle.min.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/'
   },
+  devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
@@ -38,6 +40,7 @@ module.exports = {
     host: '0.0.0.0',
     port: 3001,
     hot: true,
+    historyApiFallback: true,
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000
