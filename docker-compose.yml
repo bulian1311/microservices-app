@@ -1,5 +1,6 @@
 version: "3"
 services:
+  # frontend services
   client:
     container_name: magmer-client
     restart: unless-stopped
@@ -29,3 +30,97 @@ services:
     volumes:
       - ./dashboard/src:/app/src
       - ./dashboard/public:/app/public
+
+  # backend services
+  auth:
+    container_name: auth
+    restart: unless-stopped
+    build:
+      context: ./auth
+    command: npm run dev
+    ports:
+      - "4001:4001"
+    environment:
+      - PORT=4001
+      - MONGO_URI=mongodb://auth_db:27017/auth
+      - JWT_KEY=secret
+    depends_on:
+      - auth_db
+    volumes:
+      - "./auth/src:/app/src"
+
+  products:
+    container_name: products
+    restart: unless-stopped
+    build:
+      context: ./products
+    command: npm run dev
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+      - MONGO_URI=mongodb://products_db:27017/products
+      - JWT_KEY=secret
+      - NATS_URL=http://nats-streaming:4222
+      - NATS_CLUSTER_ID=producting
+      - NATS_CLIENT_ID=products
+    depends_on:
+      - products_db
+      - nats-streaming
+    volumes:
+      - "./products/src:/app/src"
+
+  orders:
+    container_name: orders
+    restart: unless-stopped
+    build:
+      context: ./orders
+    command: npm run dev
+    ports:
+      - "4003:4003"
+    environment:
+      - PORT=4003
+      - MONGO_URI=mongodb://orders_db:27017/orders
+      - JWT_KEY=secret
+      - NATS_URL=http://nats-streaming:4222
+      - NATS_CLUSTER_ID=producting
+      - NATS_CLIENT_ID=orders
+    depends_on:
+      - orders_db
+      - nats-streaming
+    volumes:
+      - "./orders/src:/app/src"
+
+  nats-streaming:
+    container_name: nats-streaming
+    restart: unless-stopped
+    image: nats-streaming:alpine
+    command: -p 4222 -m 8222 -hbi 5s -hbt 5s -hbf 2 -SD -cid producting
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+  # databases
+  auth_db:
+    image: mongo:latest
+    container_name: auth_db
+    volumes:
+      - mongodb_auth:/data/db
+
+  products_db:
+    image: mongo:latest
+    container_name: products_db
+    volumes:
+      - mongodb_products:/data/db
+
+  orders_db:
+    image: mongo:latest
+    container_name: orders_db
+    volumes:
+      - mongodb_orders:/data/db
+
+# volumes
+volumes:
+  mongodb_auth:
+  mongodb_products:
+  mongodb_orders:
