@@ -1,0 +1,20 @@
+{
+  "name": "mailer",
+  "version": "1.0.0",
+  "description": "Mailer service",
+  "main": "dist/app.js",
+  "author": "Nikolay Kachanov",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.9",
+    "@types/nodemailer": "^6.2.1",
+    "ts-node-dev": "^1.0.0-pre.63",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "nodemailer": "^6.3.0"
+  }
+}
