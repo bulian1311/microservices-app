@@ -1,5 +1,5 @@
-import { observable, action, makeObservable, runInAction } from "mobx";
-import { api } from "../api";
+import { observable, action, makeObservable } from "mobx";
+import * as api from "../api";
 
 import RootStore from "./root.store";
 
@@ -18,6 +18,7 @@ class ProductStore {
       isPaginateFetching: observable,
       isDataOver: observable,
       fetchProducts: action,
+      setProducts: action,
     });
   }
 
@@ -37,7 +38,7 @@ class ProductStore {
     }
 
     try {
-      const { products, count } = await api.fetchProducts({
+      const { count, products } = await api.fetchProducts({
         searchQuery: this.rootStore.filterStore.searchQuery,
         limit: this.rootStore.filterStore.limit,
         orderBy: this.rootStore.filterStore.orderBy,
@@ -46,30 +47,25 @@ class ProductStore {
       });
 
       if (products.length < this.rootStore.filterStore.limit) {
-        runInAction(() => {
-          this.isDataOver = true;
-        });
+        this.isDataOver = true;
       }
 
       const parsedProducts = this.parseProducts(products);
 
-      runInAction(() => {
-        if (paginate) {
-          this.products = [...this.products, ...parsedProducts];
-          this.isPaginateFetching = false;
-        } else {
-          this.products = parsedProducts;
-          this.isFetching = false;
-        }
+      if (paginate) {
+        this.setProducts([...this.products, ...parsedProducts]);
+        this.isPaginateFetching = false;
+      } else {
+        this.setProducts(parsedProducts);
+        this.isFetching = false;
+      }
 
-        this.count = count;
-      });
+      this.count = count;
     } catch (err) {
       console.error(err.message);
-      runInAction(() => {
-        this.isFetching = false;
-        this.isPaginateFetching = false;
-      });
+
+      this.isFetching = false;
+      this.isPaginateFetching = false;
     }
   };
 
@@ -88,6 +84,10 @@ class ProductStore {
     });
 
     return parsedProducts;
+  }
+
+  setProducts(products: IProduct[]) {
+    this.products = products;
   }
 }
 

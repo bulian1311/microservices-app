@@ -42,32 +42,29 @@ axios.interceptors.response.use(undefined, (error) => {
   throw error.response;
 });
 
-export const api = {
-  fetchProducts: async ({
-    limit,
-    orderBy,
-    order,
-    offset,
-    searchQuery,
-  }: TUrlProps): Promise<TProductResponse> => {
-    let urlOptions: string = `/products?limit=${limit}&orderBy=${orderBy}&offset=${offset}&order=${order}`;
-    if (searchQuery) urlOptions += `&search=${searchQuery}`;
+export const fetchProducts = async ({
+  limit,
+  orderBy,
+  order,
+  offset,
+  searchQuery,
+}: TUrlProps): Promise<TProductResponse> => {
+  let urlOptions: string = `/products?limit=${limit}&orderBy=${orderBy}&offset=${offset}&order=${order}`;
+  if (searchQuery) urlOptions += `&search=${searchQuery}`;
 
-    const res: AxiosResponse = await axios.get(urlOptions);
-    return res.data;
-  },
-  fetchCategories: async (): Promise<any[]> => {
-    const res: AxiosResponse = await axios.get("/categories");
-    return res.data;
-  },
+  const res: AxiosResponse = await axios.get(urlOptions);
+  return res.data;
 };
 
-export const mailer = {
-  sendMessage: async (user: TMessage): Promise<void> => {
-    await axios.post("/mailer/message", { user });
-  },
+export const fetchCategories = async (): Promise<any[]> => {
+  const res: AxiosResponse = await axios.get("/categories");
+  return res.data;
+};
 
-  sendCart: async (user: TMessage, cart: any) => {
-    await axios.post("/mailer/cart", { user, cart });
-  },
+export const sendMessage = async (user: TMessage): Promise<void> => {
+  await axios.post("/mailer/message", { user });
+};
+
+export const sendCart = async (user: TMessage, cart: any) => {
+  await axios.post("/mailer/cart", { user, cart });
 };

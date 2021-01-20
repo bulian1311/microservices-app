@@ -1,5 +1,5 @@
 import { observable, action, makeObservable, runInAction } from "mobx";
-import { mailer } from "../api";
+import * as api from "../api";
 
 import RootStore from "./root.store";
 
@@ -73,7 +73,7 @@ class MailerStore {
     this.isMailSended = true;
 
     try {
-      await mailer.sendMessage({
+      await api.sendMessage({
         name: this.name,
         phone: this.phone,
         email: this.email,
@@ -97,7 +97,7 @@ class MailerStore {
   sendCart = async () => {
     this.isMailSended = true;
     try {
-      await mailer.sendCart(
+      await api.sendCart(
         {
           name: this.name,
           phone: this.phone,

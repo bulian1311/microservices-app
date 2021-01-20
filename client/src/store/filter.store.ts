@@ -19,7 +19,7 @@ class FilterStore {
 
   searchQuery: string = "";
   limit: number = 12;
-  orderBy: "RANDOM()" | "price" | "title" | "id" = "RANDOM()";
+  orderBy: "RANDOM()" | "price" | "title" | "id" = "id";
   order: "ASC" | "DESC" = "ASC";
 
   setSearchQuery = (query: string) => {

@@ -5,7 +5,7 @@ export interface IProduct {
   price: number;
   url: string;
   images: string[];
-  catygory: any;
+  category: any;
   tags: any;
   producer: any;
   specifications: any;
