@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio matces snapshot. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ vQKso"
+    >
+      <input
+        checked=""
+        class="sc-dlfnbm dmZjux"
+        type="radio"
+        value="test"
+      />
+      <label
+        class="sc-gsTCUz kpecLn"
+      />
+      <span
+        class="sc-hKgILt jeJdIm"
+      >
+        test label
+      </span>
+    </div>
+  </div>
+</body>
+`;

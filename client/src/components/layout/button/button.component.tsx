@@ -10,10 +10,15 @@ type TProps = {
   type?: "submit" | "button" | "reset";
   small?: boolean;
   disabled?: boolean;
+  testId?: string;
 };
 
-const Button = ({ children, ...otherProps }: TProps) => {
-  return <StyledButton {...otherProps}>{children}</StyledButton>;
+const Button = ({ testId, children, ...otherProps }: TProps) => {
+  return (
+    <StyledButton data-testid={testId} {...otherProps}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;

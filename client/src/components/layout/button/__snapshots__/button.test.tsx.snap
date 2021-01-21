@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button matces snapshot. 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-bdfBwQ kPJUTy"
+    >
+      Test button
+    </a>
+  </div>
+</body>
+`;
+
+exports[`TextArea matces snapshot. 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-bdfBwQ kPJUTy"
+    >
+      Test button
+    </a>
+  </div>
+</body>
+`;

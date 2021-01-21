@@ -7,6 +7,7 @@ export type RadioButtonProps = {
   value: string;
   name?: string;
   checked: boolean;
+  testId?: string;
   handleSelectChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -17,6 +18,7 @@ const Radio = ({
   name,
   checked,
   handleSelectChange,
+  testId,
 }: RadioButtonProps) => {
   return (
     <Wrapper>
@@ -27,6 +29,7 @@ const Radio = ({
         id={id}
         value={value}
         name={name}
+        data-testid={testId}
       />
       <Label />
       <Span>{label}</Span>

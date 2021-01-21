@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Block matces snapshot. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ dNZxre"
+    >
+      Test block
+    </div>
+  </div>
+</body>
+`;
