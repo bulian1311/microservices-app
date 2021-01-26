@@ -19,6 +19,7 @@ class ProductStore {
       isDataOver: observable,
       fetchProducts: action,
       setProducts: action,
+      setCount: action,
     });
   }
 
@@ -60,7 +61,7 @@ class ProductStore {
         this.isFetching = false;
       }
 
-      this.count = count;
+      this.setCount(count);
     } catch (err) {
       console.error(err.message);
 
@@ -88,6 +89,10 @@ class ProductStore {
 
   setProducts(products: IProduct[]) {
     this.products = products;
+  }
+
+  setCount(count: number) {
+    this.count = count;
   }
 }
 

@@ -4,7 +4,7 @@ import * as api from "../api";
 jest.mock("../api", () => {
   return {
     fetchProducts: jest.fn().mockResolvedValue({
-      count: 0,
+      count: 1,
       products: [
         {
           id: 111,
@@ -83,6 +83,12 @@ test("Set product method.", () => {
 
   expect(productStore.products.length).toBe(1);
   expect(productStore.products[0].id).toBe("qwer");
+});
+
+test("Set count method.", () => {
+  const productStore = rootStore.productStore;
+  productStore.setCount(7);
+  expect(productStore.count).toBe(7);
 });
 
 test("Fetch products method.", async () => {
