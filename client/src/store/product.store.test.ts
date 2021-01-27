@@ -85,6 +85,13 @@ test("Set product method.", () => {
   expect(productStore.products[0].id).toBe("qwer");
 });
 
+test("Set is data over method.", () => {
+  const productStore = rootStore.productStore;
+  expect(productStore.isDataOver).toBe(false);
+  productStore.setIsDataOver(true);
+  expect(productStore.isDataOver).toBe(true);
+});
+
 test("Set count method.", () => {
   const productStore = rootStore.productStore;
   productStore.setCount(7);

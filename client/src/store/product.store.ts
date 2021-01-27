@@ -20,6 +20,9 @@ class ProductStore {
       fetchProducts: action,
       setProducts: action,
       setCount: action,
+      setIsDataOver: action,
+      setIsPaginateFetching: action,
+      setIsFetching: action,
     });
   }
 
@@ -33,9 +36,9 @@ class ProductStore {
     this.isDataOver = false;
 
     if (paginate) {
-      this.isPaginateFetching = true;
+      this.setIsPaginateFetching(true);
     } else {
-      this.isFetching = true;
+      this.setIsFetching(true);
     }
 
     try {
@@ -48,25 +51,25 @@ class ProductStore {
       });
 
       if (products.length < this.rootStore.filterStore.limit) {
-        this.isDataOver = true;
+        this.setIsDataOver(true);
       }
 
       const parsedProducts = this.parseProducts(products);
 
       if (paginate) {
         this.setProducts([...this.products, ...parsedProducts]);
-        this.isPaginateFetching = false;
+        this.setIsPaginateFetching(false);
       } else {
         this.setProducts(parsedProducts);
-        this.isFetching = false;
+        this.setIsFetching(false);
       }
 
       this.setCount(count);
     } catch (err) {
       console.error(err.message);
 
-      this.isFetching = false;
-      this.isPaginateFetching = false;
+      this.setIsFetching(false);
+      this.setIsPaginateFetching(false);
     }
   };
 
@@ -93,6 +96,18 @@ class ProductStore {
 
   setCount(count: number) {
     this.count = count;
+  }
+
+  setIsDataOver(over: boolean) {
+    this.isDataOver = over;
+  }
+
+  setIsPaginateFetching(isFetching: boolean) {
+    this.isPaginateFetching = isFetching;
+  }
+
+  setIsFetching(isFetching: boolean) {
+    this.isFetching = isFetching;
   }
 }
 

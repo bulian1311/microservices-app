@@ -8,7 +8,11 @@ import Icon from "../../layout/icon/icon.component";
 
 import { Wrapper } from "./show-more.styles";
 
-const ShowMore = () => {
+type TProps = {
+  dataTestId?: string;
+};
+
+const ShowMore = ({ dataTestId }: TProps) => {
   const { productStore } = useStore();
 
   const fetchMore = () => {
@@ -25,7 +29,11 @@ const ShowMore = () => {
 
   return (
     <Wrapper>
-      <Button onClick={fetchMore} disabled={productStore.isPaginateFetching}>
+      <Button
+        data-testid={dataTestId}
+        onClick={fetchMore}
+        disabled={productStore.isPaginateFetching}
+      >
         {productStore.isPaginateFetching ? (
           <Icon type="preloader-dark" width={1.6} />
         ) : (
