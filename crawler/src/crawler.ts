@@ -1,7 +1,7 @@
 import { getRequest } from "./index";
 import party2goParser from "./parser/party2go.parser";
 
-const visitedLink: string[] = [];
+let visitedLink: string[] = [];
 let linksToVisit: string[] = ["https://party2go.ru/"];
 
 const crawler = async () => {
@@ -28,11 +28,14 @@ const crawler = async () => {
         if (!visitedLink.includes(currentUrl)) linksToVisit.push(link);
       });
 
-      await sleep(5000);
+      await sleep(1000);
     } catch (err) {
       console.log(err);
     }
   }
+
+  visitedLink = [];
+  linksToVisit = ["https://party2go.ru/"];
 };
 
 const sleep = async (millisec: number) => {
