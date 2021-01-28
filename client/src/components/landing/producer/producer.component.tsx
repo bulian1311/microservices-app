@@ -59,7 +59,7 @@ const Producer = ({ producer, onClick }: ProducerProps) => {
   };
 
   return (
-    <Wrapper onClick={handleClick}>
+    <Wrapper data-testid="producer" onClick={handleClick}>
       <ProducerImg src={img} onClick={onClick} title={producer} />
     </Wrapper>
   );

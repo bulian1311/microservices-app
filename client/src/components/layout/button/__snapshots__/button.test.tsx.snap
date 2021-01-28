@@ -11,15 +11,3 @@ exports[`Button matces snapshot. 1`] = `
   </div>
 </body>
 `;
-
-exports[`TextArea matces snapshot. 1`] = `
-<body>
-  <div>
-    <a
-      class="sc-bdfBwQ kPJUTy"
-    >
-      Test button
-    </a>
-  </div>
-</body>
-`;

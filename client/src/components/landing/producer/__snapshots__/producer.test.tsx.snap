@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Producer match Snapshot 1. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ cSkijj"
+      data-testid="producer"
+    >
+      <img
+        class="sc-gsTCUz hBKqoK"
+        src="test-file-stub"
+        title="party2go"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Producer match Snapshot 2. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ cSkijj"
+      data-testid="producer"
+    >
+      <img
+        class="sc-gsTCUz hBKqoK"
+        src="test-file-stub"
+        title="arenda-attrakcionov"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Producer match Snapshot 3. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ cSkijj"
+      data-testid="producer"
+    >
+      <img
+        class="sc-gsTCUz hBKqoK"
+        src="test-file-stub"
+        title="batutvarendu"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Producer match Snapshot 4. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ cSkijj"
+      data-testid="producer"
+    >
+      <img
+        class="sc-gsTCUz hBKqoK"
+        src="test-file-stub"
+        title="eventomania"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Producer match Snapshot 5. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ cSkijj"
+      data-testid="producer"
+    >
+      <img
+        class="sc-gsTCUz hBKqoK"
+        src="test-file-stub"
+        title="funevents"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Producer match Snapshot 6. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bdfBwQ cSkijj"
+      data-testid="producer"
+    >
+      <img
+        class="sc-gsTCUz hBKqoK"
+        src="test-file-stub"
+        title="pro-interactive"
+      />
+    </div>
+  </div>
+</body>
+`;

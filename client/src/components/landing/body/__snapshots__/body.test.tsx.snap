@@ -47,6 +47,7 @@ exports[`Body component, default render, 1`] = `
           
           <input
             class="sc-iBPRYJ ixZFJJ"
+            data-testid="search-input"
             placeholder="Что вы хотите найти?"
             value=""
           />
@@ -62,6 +63,7 @@ exports[`Body component, default render, 1`] = `
           например:
           <ul
             class="sc-iqHYGH bRvbPv"
+            data-testid="example-ul"
           >
             <li
               class="sc-crrsfI sc-dQppl bxSUEa cRBrPP"

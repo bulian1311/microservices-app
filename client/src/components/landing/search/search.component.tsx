@@ -45,11 +45,12 @@ const Search = () => {
           />
         </IconWrapper>
         {store.filterStore.searchQuery && (
-          <IconCross onClick={handleCrossClick}>
+          <IconCross data-testid="cross-icon" onClick={handleCrossClick}>
             <Icon type="cross" width={1.1} />
           </IconCross>
         )}
         <StyledInput
+          data-testid="search-input"
           value={store.filterStore.searchQuery}
           onChange={handleChange}
           placeholder="Что вы хотите найти?"
@@ -58,7 +59,7 @@ const Search = () => {
       </InputWrapper>
       <ExampleText>
         например:
-        <StyledUl>
+        <StyledUl data-testid="example-ul">
           <StyledHidenLi
             onClick={() => handleChangeExample("детские аттракционы")}
           >
