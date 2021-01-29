@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification component match snapshot. 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-gsTCUz drnWZo"
+      data-testid="notification"
+    >
+      <div
+        class="sc-hKgILt Yjdfg"
+      >
+        <div
+          class="sc-bdfBwQ fdDwxF"
+        >
+          <img
+            class="sc-dlfnbm jSKCcd"
+            src=""
+          />
+        </div>
+      </div>
+      <span
+        class="sc-eCssSg oRpWe"
+      >
+        Test
+         добавлен в корзину
+      </span>
+    </div>
+  </div>
+</body>
+`;

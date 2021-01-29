@@ -9,23 +9,22 @@ import { INotification } from "../../../interfaces/notification.interface";
 
 type TProps = {
   notification: INotification;
+  timer?: number;
 };
 
-const Notification = ({ notification }: TProps) => {
+const Notification = ({ notification, timer = 2000 }: TProps) => {
   const { notificationsStore } = useStore();
-  //const [visible, setVisible] = React.useState<boolean>(true);
 
   React.useEffect(() => {
     const timeoutID = setTimeout(() => {
       notificationsStore.deleteNotification(notification.id);
-      //setVisible(false);
-    }, 2000);
+    }, timer);
 
     return () => clearTimeout(timeoutID);
   }, [notification.id, notificationsStore]);
 
   return (
-    <Wrapper visible={true}>
+    <Wrapper data-testid="notification" visible={true}>
       <ImgWrapper>
         <Block padding={5}>
           <StyledImg src={notification.img} />
