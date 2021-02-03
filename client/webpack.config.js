@@ -35,12 +35,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
     }),
-    new CopyWebpackPlugin([
+    new CopyWebpackPlugin({ patterns: [
       {
         from: path.resolve(__dirname, 'public', 'favicon.ico'),
         to: path.resolve(__dirname, 'build')
       }
-    ])
+    ]})
   ],
   devServer: {
     contentBase: path.join(__dirname, 'build'),
